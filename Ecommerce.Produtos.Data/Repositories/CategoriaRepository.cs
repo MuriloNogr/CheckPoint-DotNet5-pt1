@@ -1,4 +1,4 @@
-﻿using Ecommerce.Produtos.Data.AppContext;
+﻿using Ecommerce.Produtos.Data.AppData;
 using Ecommerce.Produtos.Domain.Entities;
 using Ecommerce.Produtos.Domain.Interfaces;
 
@@ -6,35 +6,71 @@ namespace Ecommerce.Produtos.Data.Repositories
 {
     public class CategoriaRepository : ICategoriaRepository
     {
-        private readonly AppplicationContext _context;
+        private readonly ApplicationContext _context;
 
-        public CategoriaRepository(AppplicationContext context)
+        public CategoriaRepository(ApplicationContext context)
         {
             _context = context;
         }
-        public CategoriaEntity Adicionar(CategoriaEntity entity)
+
+        public CategoriaEntity DeletarDados(int id)
         {
-            throw new NotImplementedException();
+            var entity = _context.Categoria.Find(id);
+
+            if (entity is not null)
+            {
+                _context.Categoria.Remove(entity);
+                _context.SaveChanges();
+                
+                return entity;
+            }
+
+            return null;
         }
 
-        public CategoriaEntity Deletar(CategoriaEntity entity)
+        public CategoriaEntity EditarDados(CategoriaEntity entity)
         {
-            throw new NotImplementedException();
-        }
+            var categoria = _context.Categoria.Find(entity.Id);
 
-        public CategoriaEntity Editar(CategoriaEntity entity)
-        {
-            throw new NotImplementedException();
+            if (categoria is not null)
+            {
+                categoria.Nome = entity.Nome;
+                categoria.Descricao = entity.Descricao;
+
+                _context.Categoria.Update(categoria);
+                _context.SaveChanges();
+
+                return entity;
+            }
+
+            return null;
         }
 
         public CategoriaEntity ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            var categoria = _context.Categoria.Find(id);
+
+            if (categoria is not null)
+            {
+                return categoria;
+            }
+
+            return null;
         }
 
         public IEnumerable<CategoriaEntity> ObterTodos()
         {
-            throw new NotImplementedException();
+            var categorias = _context.Categoria.ToList();
+
+            return categorias;
+        }
+
+        public CategoriaEntity SalvarDados(CategoriaEntity entity)
+        {
+            _context.Categoria.Add(entity);
+            _context.SaveChanges();
+
+            return entity;
         }
     }
 }
