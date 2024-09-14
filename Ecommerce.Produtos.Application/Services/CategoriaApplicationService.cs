@@ -1,40 +1,40 @@
-﻿using Ecommerce.Produtos.Domain.Dtos;
+﻿using Ecommerce.Produtos.Domain.Entities;
 using Ecommerce.Produtos.Domain.Interfaces;
 
 namespace Ecommerce.Produtos.Application.Services
 {
     public class CategoriaApplicationService : ICategoriaApplicationService
     {
-        private readonly ICategoriaRepository _repository;
+        private readonly ICategoriaRepository _categoriaRepository;
 
-        public CategoriaApplicationService(ICategoriaRepository repository)
+        public CategoriaApplicationService(ICategoriaRepository categoriaRepository)
         {
-            _repository = repository;
+            _categoriaRepository = categoriaRepository;
         }
 
-        public CategoriaDto AdicionarCategoria(CategoriaDto entity)
+        public CategoriaEntity? DeletarDadosCategoria(int id)
         {
-            throw new NotImplementedException();
+            return _categoriaRepository.DeletarDados(id);
         }
 
-        public CategoriaDto DeletarCategoria(CategoriaDto entity)
+        public CategoriaEntity? EditarDadosCategoria(CategoriaEntity entity)
         {
-            throw new NotImplementedException();
+            return _categoriaRepository.EditarDados(entity);
         }
 
-        public CategoriaDto EditarCategoria(CategoriaDto entity)
+        public CategoriaEntity? ObterCategoriaPorId(int id)
         {
-            throw new NotImplementedException();
+            return _categoriaRepository.ObterPorId(id);
         }
 
-        public CategoriaDto ObterCategoriaPorId(int id)
+        public IEnumerable<CategoriaEntity> ObterTodasCategorias()
         {
-            throw new NotImplementedException();
+            return _categoriaRepository.ObterTodos();
         }
 
-        public IEnumerable<CategoriaDto> ObterTodasCategorias()
+        public CategoriaEntity? SalvarDadosCategoria(CategoriaEntity entity)
         {
-            throw new NotImplementedException();
+            return _categoriaRepository.SalvarDados(entity);
         }
     }
 }
