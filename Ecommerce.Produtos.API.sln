@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Produtos.API", "Ecommerce.Produtos.API\Ecommerce.Produtos.API.csproj", "{D7DD8F11-7267-49A9-A069-5F34051E9B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Produtos.API", "Ecommerce.Produtos.API\Ecommerce.Produtos.API.csproj", "{D7DD8F11-7267-49A9-A069-5F34051E9B00}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{E8EE9102-A605-48EB-9EDB-A7F826C2D410}"
 EndProject
@@ -13,11 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Appl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - Infrastructure", "{DDF399D9-FABF-427D-A112-DE27075EF925}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Produtos.Application", "Ecommerce.Produtos.Application\Ecommerce.Produtos.Application.csproj", "{92F6A68E-B909-43A3-A497-D004A8F69350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Produtos.Application", "Ecommerce.Produtos.Application\Ecommerce.Produtos.Application.csproj", "{92F6A68E-B909-43A3-A497-D004A8F69350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Produtos.Domain", "Ecommerce.Produtos.Domain\Ecommerce.Produtos.Domain.csproj", "{2680C0A6-6AB5-4994-B275-6EC5B95C82C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Produtos.Domain", "Ecommerce.Produtos.Domain\Ecommerce.Produtos.Domain.csproj", "{2680C0A6-6AB5-4994-B275-6EC5B95C82C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Produtos.Data", "Ecommerce.Produtos.Data\Ecommerce.Produtos.Data.csproj", "{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Produtos.Data", "Ecommerce.Produtos.Data\Ecommerce.Produtos.Data.csproj", "{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Produtos.IoC", "Ecommerce.Produtos.IoC\Ecommerce.Produtos.IoC.csproj", "{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{92F6A68E-B909-43A3-A497-D004A8F69350} = {545675DE-24CA-45ED-B425-EFF360668936}
 		{2680C0A6-6AB5-4994-B275-6EC5B95C82C9} = {11D53A45-A342-4AAD-9CE8-211848E07031}
 		{F2A8C70B-01AC-4DFA-A05E-AC7B09AE53F4} = {DDF399D9-FABF-427D-A112-DE27075EF925}
+		{84A19EF2-759B-46B0-9B0A-0E1B4FC48CD5} = {DDF399D9-FABF-427D-A112-DE27075EF925}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E156AEFC-B3C2-4D4C-B835-F21D42C7A355}

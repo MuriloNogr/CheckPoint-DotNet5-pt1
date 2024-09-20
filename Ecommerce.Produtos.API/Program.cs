@@ -1,20 +1,10 @@
-using Ecommerce.Produtos.Application.Services;
-using Ecommerce.Produtos.Data.AppData;
-using Ecommerce.Produtos.Data.Repositories;
-using Ecommerce.Produtos.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using Ecommerce.Produtos.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<ApplicationContext>(x => {
-    x.UseOracle(builder.Configuration["ConnectionStrings:Oracle"]);
-});
-
-
-builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-builder.Services.AddTransient<ICategoriaApplicationService, CategoriaApplicationService>();
+Bootstrap.Start(builder.Services, builder.Configuration);
 
 
 builder.Services.AddControllers();

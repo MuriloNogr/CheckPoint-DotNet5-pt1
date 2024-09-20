@@ -11,5 +11,6 @@ namespace Ecommerce.Produtos.Data.AppData
         }
 
         public DbSet<CategoriaEntity> Categoria { get; set; }
+        public DbSet<ProdutoEntity> Produto { get; set; }
     }
 }
