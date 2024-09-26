@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Produtos.Domain.Entities;
 using Ecommerce.Produtos.Domain.Interfaces;
+using Ecommerce.Produtos.Domain.Interfaces.Dtos;
 
 namespace Ecommerce.Produtos.Application.Services
 {
@@ -17,9 +18,15 @@ namespace Ecommerce.Produtos.Application.Services
             return _categoriaRepository.DeletarDados(id);
         }
 
-        public CategoriaEntity? EditarDadosCategoria(CategoriaEntity entity)
+        public CategoriaEntity? EditarDadosCategoria(int id, ICategoriaDto entity)
         {
-            return _categoriaRepository.EditarDados(entity);
+            entity.Validate();
+
+            return _categoriaRepository.EditarDados(new CategoriaEntity { 
+                Id = id,
+                Nome = entity.Nome,
+                Descricao = entity.Descricao,
+            });
         }
 
         public CategoriaEntity? ObterCategoriaPorId(int id)
@@ -32,9 +39,15 @@ namespace Ecommerce.Produtos.Application.Services
             return _categoriaRepository.ObterTodos();
         }
 
-        public CategoriaEntity? SalvarDadosCategoria(CategoriaEntity entity)
+        public CategoriaEntity? SalvarDadosCategoria(ICategoriaDto entity)
         {
-            return _categoriaRepository.SalvarDados(entity);
+            entity.Validate();
+
+            return _categoriaRepository.SalvarDados(new CategoriaEntity
+            {
+                Nome = entity.Nome,
+                Descricao = entity.Descricao,
+            });
         }
     }
 }

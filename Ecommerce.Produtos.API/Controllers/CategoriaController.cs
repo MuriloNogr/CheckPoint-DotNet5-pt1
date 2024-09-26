@@ -1,6 +1,8 @@
-﻿using Ecommerce.Produtos.Domain.Entities;
+﻿using Ecommerce.Produtos.Application.Dtos;
+using Ecommerce.Produtos.Domain.Entities;
 using Ecommerce.Produtos.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Ecommerce.Produtos.API.Controllers
 {
@@ -56,14 +58,24 @@ namespace Ecommerce.Produtos.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Produces<CategoriaEntity>]
-        public IActionResult Post([FromBody] CategoriaEntity entity)
+        public IActionResult Post([FromBody] CategoriaDto entity)
         {
-            var categorias = _categoriaApplicationService.SalvarDadosCategoria(entity);
+            try
+            {
+                var categorias = _categoriaApplicationService.SalvarDadosCategoria(entity);
 
-            if (categorias is not null)
-                return Ok(categorias);
+                if (categorias is not null)
+                    return Ok(categorias);
 
-            return BadRequest("Não foi possivel salvar os dados");
+                return BadRequest("Não foi possivel salvar os dados");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { 
+                    Error = ex.Message,
+                    status = HttpStatusCode.BadRequest,
+                });
+            }
         }
 
         /// <summary>
@@ -71,11 +83,11 @@ namespace Ecommerce.Produtos.API.Controllers
         /// </summary>
         /// <param name="entity"> Modelo de dados para atualizar categoria</param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         [Produces<CategoriaEntity>]
-        public IActionResult Put([FromBody] CategoriaEntity entity)
+        public IActionResult Put(int id, [FromBody] CategoriaDto entity)
         {
-            var categorias = _categoriaApplicationService.EditarDadosCategoria(entity);
+            var categorias = _categoriaApplicationService.EditarDadosCategoria(id, entity);
 
             if (categorias is not null)
                 return Ok(categorias);
