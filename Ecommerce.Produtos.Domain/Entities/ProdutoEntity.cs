@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ecommerce.Produtos.Domain.Entities
 {
-    [Table("tb_prod_produto")]
+    [Table("TB_PROD_PRODUTO")]
     public class ProdutoEntity
     {
         [Key]

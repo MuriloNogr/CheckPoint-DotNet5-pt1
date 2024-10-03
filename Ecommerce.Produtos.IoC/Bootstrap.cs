@@ -13,8 +13,9 @@ namespace Ecommerce.Produtos.IoC
     {
         public static void Start(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationContext>(x => {
-                x.UseOracle(configuration["ConnectionStrings:Oracle"]);
+            services.AddDbContext<ApplicationContext>(x =>
+            {
+                x.UseOracle(configuration.GetConnectionString("Oracle"));
             });
 
 
