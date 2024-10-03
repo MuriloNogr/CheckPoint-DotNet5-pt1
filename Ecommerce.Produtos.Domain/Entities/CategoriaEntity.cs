@@ -7,6 +7,7 @@ namespace Ecommerce.Produtos.Domain.Entities
     public class CategoriaEntity
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
 
         [Column("nome")]

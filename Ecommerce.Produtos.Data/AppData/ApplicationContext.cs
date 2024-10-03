@@ -10,6 +10,11 @@ namespace Ecommerce.Produtos.Data.AppData
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
+        }
+
         public DbSet<CategoriaEntity> Categoria { get; set; }
         public DbSet<ProdutoEntity> Produto { get; set; }
     }
